@@ -1,0 +1,9 @@
+venv\scripts\activate
+
+cd project
+
+code .
+
+set FLASK_ENV=development
+
+falsk run
