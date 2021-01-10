@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div id="tabb">
+  <h3>3rd year students - EEE </h3>
+</div>
+<div>
+<table class="table table-bordered">
+ <thead>
+   <tr>
+     <th>Name</th>
+     <th>PIN</th>
+     <th>Marks</th>
+     <th>branch</th>
+     <th>profile</th>
+
+   </tr>
+ </thead>
+ <tbody>
+   {% for record in data_eee3 %}
+   <tr>
+     <td>{{record.Name}}</td>
+     <td>{{record.PIN}}</td>
+     <td>{{record.Marks}}</td>
+     <td>{{record.branch}}</td>
+     <td>
+       <div class="form-group">
+         <a  class="btn btn-primary btn-block" href="{{url_for('dashboard',pin=record.PIN,branch=record.branch)}}" >view</a>
+     </div>
+     </td>
+   </tr>
+   {% endfor %}
+ </tbody>
+</table> 
+
+</div>
+
+
+{% endblock %}

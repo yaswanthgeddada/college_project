@@ -1,0 +1,45 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div id="tabb">
+  <div class = "row">
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    
+  
+   <h3 class= "mb-sm-1" >2nd year students - CSE </h3>
+   <!-- <a class= "btn btn-primary btn-sm">add student</a> -->
+  </div>
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>PIN</th>
+        <th>Marks</th>
+        <th>branch</th>
+        <th>profile</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for record in data_cse2 %}
+      <tr>
+        <td>{{record.Name}}</td>
+        <td>{{record.PIN}}</td>
+        <td>{{record.Marks}}</td>
+        <td>{{record.branch}}</td>
+        <td>
+          <div class="form-group">
+            <a  class="btn btn-primary btn-block" href="{{url_for('dashboard',pin=record.PIN,branch=record.branch)}}" >view</a>
+        </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table> 
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<h3 class="text-muted">Attendance</h3>
+<form action="/attendance" method="POST">
+<div class="form-group">
+ 
+    <input type="text" name = "branch" class="form-control form-control-1 input-sm from" placeholder="Branch(ex:cse)">
+    <br>
+    <input type="text" name = "year" class="form-control form-control-1 input-sm from" placeholder="Enter the year of study">
+</div>
+<button type="submit" class="btn btn-warning">Submit</button>
+
+</form>
+
+{% endblock %}

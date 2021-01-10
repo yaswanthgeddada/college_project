@@ -1,0 +1,164 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<script>
+	var labels = JSON.parse('{{plots}}')
+	console.log(labels)
+	var pe = JSON.parse('{{pre}}')
+	console.log(pe)
+	window.onload = function () {
+
+
+		//Better to construct options first and then pass it as a parameter
+		var options = {
+			title: {
+				text: "Attendance chart"
+			},
+			animationEnabled: true,
+			exportEnabled: true,
+			data: [
+				{
+					type: "spline", //change it to line, area, column, pie, etc
+					dataPoints: [
+						{ x: 10, label: "10", y: labels[0], label: "jan" },
+						{ x: 20, y: labels[1], label: "feb" },
+						{ x: 30, y: labels[2], label: "mar" },
+						{ x: 40, y: labels[3], label: "aprl" },
+						{ x: 50, y: labels[4], label: "may" },
+						{ x: 60, y: labels[5], label: "june" },
+						{ x: 70, y: labels[6], label: "july" },
+						{ x: 80, y: labels[7], label: "aug" }
+					]
+				}
+			]
+		};
+		$("#chartContainer").CanvasJSChart(options);
+		var chart = new CanvasJS.Chart("chartContainer2", {
+			animationEnabled: true,
+			title: {
+				text: "predicted percentage"
+			},
+			data: [{
+				type: "pie",
+				startAngle: 360,
+				yValueFormatString: "##0.00\"%\"",
+				indexLabel: "{label} {y}",
+				dataPoints: [
+					{ y: pe, label: "total percentage" },
+					{ y: 100-pe, label: "percentage need to gain" },
+				]
+			}]
+		});
+		chart.render();
+
+	}
+
+
+
+</script>
+<style>
+	.card {
+		margin-top: 11px;
+		font-size: 16px;
+	}
+</style>
+</head>
+
+<body>
+	<div class="row ">
+		<div class="col-4">
+			<div class="card bg-light">
+
+				<div class="card-header">
+					<h5> Student Details :</h5>
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">Name : {{data_member.Name}}</h5>
+					<p class="card-text">Pin : {{data_member.PIN}}</p>
+					<p class="card-text">Predicted percentage : {{pre}} %</p>
+					<p class="card-text">Total attendace : {{data_member.attendance}}%</p>
+					{% if (data_member.year == "third_year_") or (data_member.year == "fourth_year_") %}
+					<p class="card-text">placement : {{placement}}</p>
+					{% else %}
+					<p class="card-text">marks : {{data_member.Marks}}</p>
+					{% endif %}
+
+				</div>
+
+
+			</div>
+		</div>
+		<div class="col-8">
+			<div id="chartContainer" style="height: 300px; "></div>
+			<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+			<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+			&nbsp;&nbsp;&nbsp;&nbsp;
+
+		</div>
+	</div>
+	<p>Subject-wise prediction :</p>
+	<div class="row">
+
+		<div class="col-7">
+			<img src="../{{pltimg}}" alt="loading..." width="600px" height="300px">
+			
+
+		</div>
+		<div class="col-4">
+			<div id="chartContainer2" style="height: 300px; width: 100%;"></div>
+			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+		</div>
+	</div>
+
+	{% if (pre > 75) %}
+	<div class="alert alert-success" role="alert">
+		<h4 class="alert-heading">Good performance</h4>
+		<p>The overall  Predicted percentage of {{data_member.Name}} is above 75 percentage .</p>
+		<hr>
+		<p class="mb-0">The performance of the student is Good, well done!.</p>
+	</div>
+	{% elif (pre > 65) %}
+	<div class="alert alert-info" role="alert">
+		<h4 class="alert alert-heading">average performance</h4>
+		<p>The overall Predicted percentage of {{data_member.Name}} is above 65 percentage .</p>
+		<hr>
+		<p class="mb-0">The performance should be improved for better results.</p>
+	</div>
+	{% else %}
+	<div class="alert alert-danger" role="alert">
+		<h4 class="alert alert-heading">Bad performance</h4>
+		<p>The overall Predicted percentage of {{data_member.Name}} is less than 65 .</p>
+		<hr>
+		<p class="mb-0">The performance should be improved for better results.</p>
+	</div>
+	{% endif %}
+
+	{% if (data_member.year == "third_year_") or (data_member.year == "fourth_year_") %}
+
+
+	{% if placement == 'no' %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+		The chances of being placed are<strong> low.</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+
+		</button>
+	</div>
+	{% elif placement == 'yes' %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		The chances of being placed are<strong> Good.</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		</button>
+	</div>
+
+	{% endif %}
+
+
+	{% endif %}
+
+
+	<div clas='container col-md-4'>
+
+	</div>
+	{% endblock %}

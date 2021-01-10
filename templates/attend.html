@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<form action="/addstudent" method="POST">
+  <label>First check in:</label>
+  <input type="month" name = "date" class="form-control form-control-1 input-sm from col-md-3 mb-3" placeholder="Select the month and year">
+  <br>
+{% for record in res %}
+    <div class="form-row">
+    <div class="col-md-3 mb-3">
+      <input type="text" class="form-control" id="validationDefault03" placeholder="City" value={{record[1]}} required disabled>
+    </div>
+    <div class="col-md-2 mb-2">
+      <input type="text" class="form-control" id="validationDefault04" placeholder="State" value={{record[2]}} required disabled>
+    </div>
+    <div class="col-md-2 mb-2">
+        <input type="text" class="form-control" id="validationDefault05" placeholder="Zip" value={{record[16]}} required disabled>
+      </div>
+    <div class="col-md-2 mb-2">
+      <input type="text" class="form-control" name = "att" id="validationDefault05" placeholder="attendance in %" required>
+    </div>
+  </div>
+{% endfor %}
+<button type="submit" class="btn btn-warning">Submit</button>
+
+</form>
+ 
+
+
+{% endblock %}

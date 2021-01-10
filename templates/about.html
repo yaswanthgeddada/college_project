@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      About application
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Student Performance Analysis and Visualization</h5>
+      <p class="card-text">Student Performance Analysis System provides a interface for college maintenance.
+           It can used by educational institutes to analyse the student performance easily
+          . The creation, analysation, up to date information regarding academic career of a student is critically very important
+           in an institution. This System deals with all kinds of student related academic details. 
+           It keeps track on all details of a student from the day one to the end of the academics .
+           This project is mainly focuses on Student performance. In this system, Firstly data is collected 
+           by the students from their previous academic performance and the data is stored in this system.
+            Based on the previous data, student can predict their next academic performance. 
+            This performance analysis is shown in the form of graphs using pie-charts and bar-graphs.
+    </p>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Developers List
+      </button>
+    </div>
+  </div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Developed by:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <p> Geddada Yaswanth   - 16551A0526<br></p>
+         <p> N.N G K Prathyusha - 16551A0572<br></p>
+          <p> V.Karishma Joseph  &nbsp;- 16551A05A5<br></p>
+          <p>under the guidence of <strong> &nbsp; Dr. J M S V Ravi kumar, Professor </strong></p>
+        </div>
+        <div class="modal-footer">
+            
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Student Performance</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel = "icon" href =  
+  "../static/img/student.png" 
+          type = "image/x-icon"> 
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div class="wrapper d-flex align-items-stretch">
+    <nav id="sidebar">
+      <div class="p-4 pt-5">
+        <!-- <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(images/logo.jpg);"></a> -->
+        <ul class="list-unstyled components mb-5">
+          <li class="active">
+            <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">I-Year</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu1">
+              <li>
+                <a href="{{url_for('FirstYearCse')}}">CSE</a>
+              </li>
+              <li>
+                <a href="{{url_for('FirstYearEce')}}">ECE</a>
+              </li>
+              <li>
+                <a href="{{url_for('FirstYearcivil')}}">Civil</a>
+              </li>
+
+              <li>
+                <a href="{{url_for('FirstYearMECH')}}">Mech</a>
+              </li>
+              <li>
+                <a href="{{url_for('FirstYeareee')}}">EEE</a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">II-Year</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu2">
+              <li>
+                <a href="{{url_for('secondyearcse')}}">CSE</a>
+              </li>
+              <li>
+                <a href="{{url_for('secondyearece')}}">ECE</a>
+              </li>
+              <li>
+                <a href="{{url_for('secondyearcivil')}}">Civil</a>
+              </li>
+
+              <li>
+                <a href="{{url_for('secondyearmech')}}">Mech</a>
+              </li>
+              <li>
+                <a href="{{url_for('secondyeareee')}}">EEE</a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="active">
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">III-Year</a>
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+              <li>
+                <a href="{{url_for('thirdyearcse')}}">CSE</a>
+              </li>
+              <li>
+                <a href="{{url_for('thirdyearece')}}">ECE</a>
+              </li>
+              <li>
+                <a href="{{url_for('thirdyearcivil')}}">Civil</a>
+              </li>
+
+              <li>
+                <a href="{{url_for('thirdyearmech')}}">Mech</a>
+              </li>
+              <li>
+                <a href="{{url_for('thirdyeareee')}}">EEE</a>
+              </li>
+
+            </ul>
+          </li>
+          <li class="active">
+          <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">IV-Year</a>
+          <ul class="collapse list-unstyled" id="homeSubmenu4">
+            <li>
+              <a href="{{url_for('fourthyearcse')}}">CSE</a>
+            </li>
+            <li>
+              <a href="{{url_for('fourthyearece')}}">ECE</a>
+            </li>
+            <li>
+              <a href="{{url_for('fourthyearcivil')}}">Civil</a>
+            </li>
+
+            <li>
+              <a href="{{url_for('fourthyearmech')}}">Mech</a>
+            </li>
+            <li>
+              <a href="{{url_for('fourthyeareee')}}">EEE</a>
+            </li>
+
+          </ul>
+        </li>        
+
+
+
+          <li>
+            
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+              <li>
+                <a href="#">Page 1</a>
+              </li>
+              <li>
+                <a href="#">Page 2</a>
+              </li>
+              <li>
+                <a href="#">Page 3</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="{{url_for('selectsudent')}}">Add students</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+
+        <div class="footer">
+          
+        </div>
+
+      </div>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content" class="p-4 p-md-5">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Toggle Menu</span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="nav navbar-nav ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('index')}}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('about')}}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{url_for('attendance')}}">Attendance</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn btn-outline-warning" href="{{url_for('logout')}}">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <h2 class="mb-4"></h2>
+      {% block content %}
+      <div class="card">
+        <div class="card-body">
+          <h3 style="color:#f8b739; text-align: center;"> Student Performance Analysis and Visualization </h3>
+
+        </div>
+      </div>
+        
+      {% endblock %}
+
+    </div>
+  </div>
+
+  <!-- <script src="url_for('static',filename='js/jquery.min.js')}}"></script>
+  <script src="url_for('static',filename='js/popper.js')}}"></script>
+   <script src="url_for('static',filename='js/bootstrap.min.js')}}"></script> -->
+  <script src="../static/js/main.js"></script>
+</body>
+
+</html>
